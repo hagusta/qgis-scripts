@@ -1,4 +1,6 @@
 sys.path.insert(1, 'scripts/')
+import importlib
+import TrainDatasets
 
 palm = QgsProject.instance().mapLayersByName('palm')[0]
 train = QgsProject.instance().mapLayersByName('train')[0]
