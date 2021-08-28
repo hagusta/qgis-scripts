@@ -16,8 +16,8 @@ class trainDatasets:
         path='data/', \
         filename='bbox'):
         self.features=list(iter(features))
-        self.zfill=str(len(self.features))
-        print('feature len', self.zfill)
+        self.zfill=len(str(len(self.features)))
+        #print('feature len', self.zfill)
         self.raster=raster
         self.areas=list(iter(areas))
         self.path=path
@@ -72,8 +72,8 @@ class trainDatasets:
                     ctrX,ctrY=getCentroid(box)
                     ctrX=(ctrX-areaXMin)/(self.pixelSize * self.dimension)
                     ctrY=(areaYMax-ctrY)/(self.pixelSize * self.dimension)
-                    w=(xMax-xMin)/(self.pixelSize * self.dimension)
-                    h=(yMax-yMin)/(self.pixelSize * self.dimension)
+                    w=(xMax-xMin)/(self.pixelSize * self.dimension)/2
+                    h=(yMax-yMin)/(self.pixelSize * self.dimension)/2
                     file.write('0,'+ str(ctrX) + ',' + \
                         str(ctrY) + ',' + str(w) + \
                         ',' + str(h) + '\n')
